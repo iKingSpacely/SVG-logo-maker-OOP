@@ -27,3 +27,8 @@ inquirer
         },
 
     ])
+
+    // .then((file) => {
+    //     const content = generateShapes(file)
+    //     fs.writeFile("logos.svg", content, (error) => error ? console.log("Something went wrong!", error) : console.log("Logo file created successfully!"))
+    // });
