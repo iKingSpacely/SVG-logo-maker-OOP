@@ -12,6 +12,9 @@ Want a quick and easy way to create an SVG logo? Try out my SVG Logo Maker! As a
 - [Licenses](#licenses)
 - [Questions](#questions)
 
+## Walkthrough Video
+[Untitled_ Jun 14, 2023 3_33 PM.webm](https://github.com/iKingSpacely/SVG-logo-maker-OOP/assets/131802980/e091d16a-8c5c-47aa-b957-6b2c0a925874)
+
 ## Installation
 npm inquirer npm jest
 
