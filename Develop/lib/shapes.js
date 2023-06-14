@@ -1,10 +1,10 @@
 class Shape { //setColor needs to be appended somwhere in here based on the shapes.test.js
     constructor () {
-        this.color = ''; //this is always going to be a string to catch the user input/choice of thier colors
+        this.color = ''; //this is always going to be a string to catch the user input/choice of their colors
         
     } 
     setColor(color) {
-        console.log(color);
+        // console.log(color);
         this.color = color;
     }
 };
