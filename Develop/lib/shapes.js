@@ -4,6 +4,7 @@ class Shape { //setColor needs to be appended somwhere in here based on the shap
         
     } 
     setColor(color) {
+        console.log(color);
         this.color = color;
     }
 };

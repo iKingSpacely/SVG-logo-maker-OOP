@@ -1,6 +1,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const { Square, Triangle, Circle } = require('./Develop/lib/shapes');
+const SVG = require('./Develop/lib/svg');
 
 inquirer
     .prompt([
@@ -32,28 +33,38 @@ inquirer
         },
 
     ])
-    .then(({ characters, colors, shape, text_color }) => {createSVG(characters, colors, shape, text_color)
-
+    
+    .then(({ characters, colors, shape, text_color }) => {
+        const content = generateShapes(characters, colors, shape, text_color)
+        return content
     })
 
-    // .then((file) => {
-    //     const content = generateShapes(file)
-    //     fs.writeFile("logos.svg", content, (error) => error ? console.log("Something went wrong!", error) : console.log("Logo file created successfully!"))
-    // })
+    .then((content) => {
+        fs.writeFile("logos.svg", content, (error) => error ? console.log("Something went wrong!", error) : console.log("Logo file created successfully!"))
+    })
 
-function createSVG(characters, colors, shape, text_color) {
-    let userShape;
-    if (shape = 'Triangle') {
+function generateShapes(characters, colors, shape, text_color) {
+    var userShape;
+    if (shape === 'Triangle') {
         userShape = new Triangle();
-    } else if (shape = 'Square') {
+    } else if (shape === 'Square') {
         userShape = new Square();
-    } else if (shape = 'Circle') {
+    } else if (shape === 'Circle') {
         userShape = new Circle();
     } else {
         alert('Please restart the prompts!');
         return 0
     } 
-    
-    // console.table({"characters": characters, "colors": colors, "shape": shape, "text_color": text_color})
 
+    // console.table({"characters": characters, "colors": colors, "shape": shape, "text_color": text_color})
+    userShape.setColor(colors)
+    return generateSVG(characters, text_color, userShape)
+}
+
+function generateSVG(characters, text_color, userShape) {
+    let svg = new SVG()
+    console.log(characters, text_color);
+    svg.setText(characters, text_color)
+    svg.setShape(userShape)
+    return svg.render()
 }
