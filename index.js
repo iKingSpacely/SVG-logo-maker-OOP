@@ -1,7 +1,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-const { Square, Triangle, Circle } = require('../lib/shapes');
-const SVG = require('../lib/svg');
+const { Square, Triangle, Circle } = require('./Develop/lib/shapes');
+const SVG = require('./Develop/lib/svg');
 
 inquirer
     .prompt([
@@ -56,14 +56,14 @@ function generateShapes(characters, colors, shape, text_color) {
         return 0
     } 
 
-    console.table({"characters": characters, "colors": colors, "shape": shape, "text_color": text_color})
+    // console.table({"characters": characters, "colors": colors, "shape": shape, "text_color": text_color})
     userShape.setColor(colors)
     return generateSVG(characters, text_color, userShape)
 }
 
 function generateSVG(characters, text_color, userShape) {
     let svg = new SVG()
-    console.log(characters, text_color);
+    // console.log(characters, text_color);
     svg.setText(characters, text_color)
     svg.setShape(userShape)
     return svg.render()
